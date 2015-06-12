@@ -1,10 +1,10 @@
-import sbt.Keys._
 import sbt._
+import Keys._
 
-import au.com.ecetera.sbt.S3WebsitePlugin
-import au.com.ecetera.sbt.S3WebsitePlugin.S3WS._
-import com.owtelse.PrefixPlugin
-import com.owtelse.PrefixPlugin.PrefixKeys._
+import com.owtelse.sbt.S3WebsitePlugin
+import com.owtelse.sbt.S3WebsitePlugin.S3WS._
+import com.owtelse.foo.PrefixPlugin
+import com.owtelse.foo.PrefixPlugin.PrefixKeys._
 import com.typesafe.sbt.web.SbtWeb
 
 import ohnosequences.sbt.SbtS3Resolver.{s3 => ss33, _}
@@ -19,19 +19,21 @@ object build extends Build {
   lazy val standardSettings = Defaults.defaultSettings ++
     PrefixPlugin.prefixSettings ++ Seq[Sett](
       name := "CHANGE_MY_NAME"
-    , bucket in s3wsUpload := "techtalks.ecetera.com.au"
-    , bucket in s3wsDeleteAll := "techtalks.ecetera.com.au"
+    , scalaVersion := "2.10.4"
+    , s3wsBucket := "docs.aws.avocadoconsulting.com.au"
+//    , bucket in s3wsDeleteAll := "docs.aws.avocadoconsulting.com.au"
     , s3wsAssetDir := baseDirectory.value / "assets"
     , progressBar in s3wsUpload := true
-    , credentials += Credentials(Path.userHome / ".s3TechtalksCreds")
+    , credentials += Credentials(Path.userHome / ".s3AvocadoCreds")
     , s3wsIncremental := true
-    , s3wsPrefix <<= (name, tsyncprefix).apply((n, prefix) =>
+    , s3wsPrefix <<= (name, tsyncprefixRoot, tsyncprefix).apply((n, prefixroot, prefix) =>
       if(n == "CHANGE_MY_NAME" | n == "You_should_Name_me" | n == "")
         throw new Exception("You must name your Project")
-      else  "techsync/" + prefix + "/" + n + "/")
+      else  prefixroot + "/" + prefix + "/" + n + "/")
 //    , s3wsPrefix := "techsync/" + tsyncprefix.value + "/" + name.value + "/"
-    , s3wsPrefix in s3wsUpload := s3wsPrefix.value
-    , s3wsPrefix in s3wsDeleteAll := s3wsPrefix.value );
+//    , s3wsPrefix in s3wsUpload := s3wsPrefix.value
+//    , s3wsPrefix in s3wsDeleteAll := s3wsPrefix.value );
+  )
 
   lazy val root: Project = Project(
       id = "tech-talk"

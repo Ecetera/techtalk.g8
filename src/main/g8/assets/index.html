@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 
 <title>$title$</title>
-<meta name="description" content="$description$">
+<meta name="description" content="$desc$">
 <meta name="author" content="$yourname$">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,25 +69,25 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 // Full list of configuration options available at:
 // https://github.com/hakimel/reveal.js#configuration
   Reveal.initialize({
-    controls: true,
-    progress: true,
-    history: true,
-    center: true,
+controls: true,
+progress: true,
+history: true,
+center: true,
 
-    transition: 'none', // none/fade/slide/convex/concave/zoom
+transition: 'none', // none/fade/slide/convex/concave/zoom
 
-    // Optional reveal.js plugins
-    dependencies: [
-      { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true },
-      { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }
-    ]
-  });
+// Optional reveal.js plugins
+dependencies: [
+{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true },
+{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }
+]
+});
 
-</script>
+  </script>
 
-</body>
-</html>
+  </body>
+  </html>
