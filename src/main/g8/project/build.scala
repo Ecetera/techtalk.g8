@@ -20,11 +20,10 @@ object build extends Build {
     PrefixPlugin.prefixSettings ++ Seq[Sett](
       name := "CHANGE_MY_NAME"
     , scalaVersion := "2.10.4"
-    , s3wsBucket := "docs.aws.avocadoconsulting.com.au"
-//    , bucket in s3wsDeleteAll := "docs.aws.avocadoconsulting.com.au"
+    , s3wsBucket := "SPECIFY_AN_S3_BUCKET_NAME"
     , s3wsAssetDir := baseDirectory.value / "assets"
     , progressBar in s3wsUpload := true
-    , credentials += Credentials(Path.userHome / ".s3AvocadoCreds")
+    , credentials += Credentials(Path.userHome / ".s3Credentials")
     , s3wsIncremental := true
     , s3wsPrefix <<= (name, tsyncprefixRoot, tsyncprefix).apply((n, prefixroot, prefix) =>
       if(n == "CHANGE_MY_NAME" | n == "You_should_Name_me" | n == "")

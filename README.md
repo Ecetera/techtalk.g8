@@ -1,8 +1,8 @@
-#Avocado techtalk giter8 template
+#My techtalk giter8 template
 
 Template to get tech talks running quickly.
 
-after installing g8 you should be able to type:-
+after installing g8 (see instructions below) you should be able to type:-
 
 ```
 g8 karlroberts/techtalk.g8
@@ -15,7 +15,7 @@ prepare your talk skeleton.
 ### push to s3 bucket
 Once uploaded to the bucket it will be visible online at
 ```
-http://docs.aws.avocadoconsulting.com.au/techtalks/&lt;year&gt;/&lt;month&gt;/&gt;name&lt;/index.html
+http://<your-s3-bucket-name>/techtalks/<year>/<month>/<name>/index.html
 ```
 
 to upload it type:-
@@ -23,7 +23,8 @@ to upload it type:-
 sbt s3wsSync
 ```
 
-this will cause the copy up in S3 to mirror what you have locally. You can test where the talk will be published with:
+this will cause the copy up in S3 to mirror what you have locally.
+You can test where the talk will be published with:
 
 ```
 $ # show bucket name
@@ -43,8 +44,7 @@ the above talk would be at `http://docs.aws.avocadoconsulting.com.au/techtalks/2
 
 ### save your talk to a git repo
 
-Add your talk to the (techtalks git repo TBD)[https://???]
-and follow the prompts to add it to gitlab.
+You should save your talk to version control somewhere, eg github 
 
 
 

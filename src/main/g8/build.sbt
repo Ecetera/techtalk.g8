@@ -7,7 +7,7 @@ enablePlugins(S3WebsitePlugin)
  *
  * name := "foobar"
  *
- * would produce an a path(key) in S3 of "techsync/\<year\>/\<month\>/foobar"
+ * would produce an a path(key) in S3 of "techsync/<year\>/\<month\>/foobar"
  *   where \<year\> is the current year and \<month\> is the current month.
  *
  * you can modify the prefix by using PrefixKeys.tsyncprefix setting,
@@ -30,7 +30,7 @@ name := "$name$"
 
 /* The following settings are all set by default - uncomment to change them */
 
-//bucket := "docs.aws.avocadoconsulting.com.au"
+s3wsBucket := "$s3bucket$"
 
 //s3wsAssetDir := baseDirectory.value / "assets"
 
@@ -38,7 +38,7 @@ name := "$name$"
 
 //s3wsIncremental := true
 
-//credentials += Credentials(Path.userHome / ".s3AvocadoCreds")
+//credentials += Credentials(Path.userHome / ".s3Credentials")
 
 /* as mentioned above the s3wsPrefix, ie the "folder" in your S3 bucket is calculated using the following settings
  * feel free to modify the stem settings or simply redefine s3wsPrefix
