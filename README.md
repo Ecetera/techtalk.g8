@@ -28,7 +28,7 @@ You can test where the talk will be published with:
 
 ```
 $ # show bucket name
-$ sbt s3wsUpload::bucket
+$ sbt s3wsBucket
 [info] docs.aws.avocadoconsulting.com.au
 
 $ # show the prefix
